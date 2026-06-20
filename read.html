@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>read — entelechia collective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo"><a href="index.html">entelechia</a></div>
+    <ul class="nav-links">
+      <li><a href="read.html">read</a></li>
+      <li><a href="letters.html">letters</a></li>
+      <li><a href="explore.html">explore</a></li>
+      <li><a href="shelf.html">shelf of healing</a></li>
+      <li><a href="#" onclick="openPopup('submitPopup'); return false;">submit</a></li>
+      <li><a href="#" onclick="openPopup('resourcesPopup'); return false;">resources</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="menu">&#9776;</button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="read.html">read</a>
+    <a href="letters.html">letters</a>
+    <a href="explore.html">explore</a>
+    <a href="shelf.html">shelf of healing</a>
+    <a href="#" onclick="openPopup('submitPopup'); closeMobileNav(); return false;">submit</a>
+    <a href="#" onclick="openPopup('resourcesPopup'); closeMobileNav(); return false;">resources</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <p class="page-hero-tag">the archive</p>
+    <h1 class="page-hero-title">read</h1>
+    <p class="page-hero-sub">poetry, prose, and essays submitted by people who needed somewhere to put them.</p>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterSubmissions('all', this)">all</button>
+    <button class="filter-btn" onclick="filterSubmissions('poetry', this)">poetry</button>
+    <button class="filter-btn" onclick="filterSubmissions('prose', this)">prose</button>
+    <button class="filter-btn" onclick="filterSubmissions('essay', this)">essay</button>
+  </div>
+
+  <!-- SUBMISSIONS -->
+  <div class="submissions-grid" id="submissions-container">
+    <p class="loading">gathering words...</p>
+  </div>
+
+  <!-- SUBMIT BAR -->
+  <div class="page-submit-bar">
+    <p>have something to share? we'd love to hold it for you.</p>
+    <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="btn-light">submit your work</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">entelechia collective</div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/entelechiacollective/" target="_blank">instagram</a>
+      <a href="#" onclick="openPopup('volunteerPopup'); return false;">volunteer</a>
+      <a href="#" onclick="openPopup('resourcesPopup'); return false;">resources</a>
+    </div>
+  </footer>
+
+  <!-- SUBMIT POPUP -->
+  <div class="overlay" id="submitPopup" onclick="closeOnOverlay(event, 'submitPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('submitPopup')">&#215;</button>
+      <div class="popup-title">submit &#10022;</div>
+      <p class="popup-sub">we welcome poetry, prose, art, photography, letters, and anything that carries weight or lightness.</p>
+      <div class="popup-btns">
+        <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="popup-btn popup-btn-a">&#10022; general submissions</a>
+        <a href="https://forms.gle/TYsuQbqLczdqz2hj6" target="_blank" class="popup-btn popup-btn-b">&#10022; unsent letters</a>
+        <a href="https://forms.gle/vqNj5omvocq6nReE7" target="_blank" class="popup-btn popup-btn-c">&#10022; sky diary entry</a>
+        <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="popup-btn popup-btn-d">&#10022; book reviews</a>
+      </div>
+      <p class="popup-note">all submissions are anonymous-friendly. you choose how you want to be credited.</p>
+    </div>
+  </div>
+
+  <!-- RESOURCES POPUP -->
+  <div class="overlay" id="resourcesPopup" onclick="closeOnOverlay(event, 'resourcesPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('resourcesPopup')">&#215;</button>
+      <div class="popup-title">resources &#10022;</div>
+      <div class="popup-section-label">crisis support</div>
+      <div class="popup-resources">
+        <p><strong>988 Lifeline (US):</strong> call or text 988</p>
+        <p><strong>Crisis Text Line (US):</strong> text HOME to 741741</p>
+        <p><strong>Samaritans (UK):</strong> 116 123</p>
+        <p><strong>Lifeline (Australia):</strong> 13 11 14</p>
+        <p><strong>iCall (South Asia):</strong> 9152987821</p>
+      </div>
+      <div class="popup-section-label">ongoing support</div>
+      <div class="popup-resources">
+        <p><strong>7 Cups:</strong> free emotional support — <a href="https://7cups.com" target="_blank">7cups.com</a></p>
+        <p><strong>NAMI:</strong> mental health resources &amp; community — <a href="https://nami.org" target="_blank">nami.org</a></p>
+      </div>
+      <p class="popup-note">you are not alone. reaching out is brave.</p>
+    </div>
+  </div>
+
+  <!-- VOLUNTEER POPUP -->
+  <div class="overlay" id="volunteerPopup" onclick="closeOnOverlay(event, 'volunteerPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('volunteerPopup')">&#215;</button>
+      <div class="popup-title">volunteer &#10022;</div>
+      <p class="popup-sub">we're looking for readers, writers, editors, and gentle souls who want to help hold this space.</p>
+      <div class="popup-btns">
+        <a href="https://forms.gle/FNsm19fzMGr7P7Ft5" target="_blank" class="popup-btn popup-btn-a">&#10022; apply to volunteer</a>
+      </div>
+      <p class="popup-note">all roles are remote and flexible. you just need a heart for this.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const SUBMISSIONS_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSxkxnS2zgXjniemgmu2g3J7p433NeCk_7YXu8Psj-ZvaMSnBjGVEQDxWckGoGlqn59clh2HcwHWb7D/pub?gid=0&single=true&output=csv';
+
+    let allSubmissions = [];
+
+    function parseCSV(text) {
+      const lines = text.trim().split('\n');
+      const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+      return lines.slice(1).map(line => {
+        const values = [];
+        let current = '';
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i++) {
+          if (line[i] === '"') { inQuotes = !inQuotes; }
+          else if (line[i] === ',' && !inQuotes) { values.push(current.trim()); current = ''; }
+          else { current += line[i]; }
+        }
+        values.push(current.trim());
+        const obj = {};
+        headers.forEach((h, i) => obj[h] = values[i] || '');
+        return obj;
+      });
+    }
+
+    function renderCards(data) {
+      const container = document.getElementById('submissions-container');
+      if (data.length === 0) {
+        container.innerHTML = '<p class="loading">no submissions yet. be the first.</p>';
+        return;
+      }
+      container.innerHTML = data.map(item => `
+        <div class="submission-card" data-type="${(item.type || '').toLowerCase()}">
+          <span class="submission-type">${item.type || 'poetry'}</span>
+          <div class="submission-title">${item.title || ''}</div>
+          <p class="submission-excerpt">${(item.content || '').replace(/\n/g, '<br>')}</p>
+          <span class="submission-author">— ${item.author || 'anonymous'}</span>
+        </div>
+      `).join('');
+    }
+
+    function filterSubmissions(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (type === 'all') { renderCards(allSubmissions); return; }
+      renderCards(allSubmissions.filter(i => (i.type || '').toLowerCase() === type));
+    }
+
+    async function loadSubmissions() {
+      const container = document.getElementById('submissions-container');
+      try {
+        const res = await fetch(SUBMISSIONS_CSV);
+        const text = await res.text();
+        const data = parseCSV(text);
+        allSubmissions = data.filter(i => (i.status || '').toLowerCase() === 'published');
+        renderCards(allSubmissions);
+      } catch (err) {
+        container.innerHTML = '<p class="loading">couldn\'t load submissions right now. try again soon.</p>';
+      }
+    }
+
+    loadSubmissions();
+  </script>
+</body>
+</html>
