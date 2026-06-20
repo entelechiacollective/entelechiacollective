@@ -350,7 +350,6 @@ img { max-width: 100%; display: block; }
   padding: 1rem 1.5rem;
   border: none;
   border-radius: 50px;
-  color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -359,10 +358,10 @@ img { max-width: 100%; display: block; }
   transition: opacity 0.2s;
 }
 .popup-btn:hover { opacity: 0.88; }
-.popup-btn-a { background: linear-gradient(120deg, #b8d4b0, #9ec8b8); color: #3a5a44; }
-.popup-btn-b { background: linear-gradient(120deg, #f5e6c8, #f0d8a8); color: #6a4e28; }
-.popup-btn-c { background: linear-gradient(120deg, #c8d8f0, #b8cce8); color: #3a4a6a; }
-.popup-btn-d { background: linear-gradient(120deg, #c8a8c8, #b898c8); color: #ffffff; }
+.popup-btn-a { background: linear-gradient(120deg, #e8e2f2 0%, #e4edf0 100%); color: #6a5a7a; border: 0.5px solid #d8d0ec; }
+.popup-btn-b { background: linear-gradient(120deg, #f5e8f0 0%, #eedde8 100%); color: #7a4a62; border: 0.5px solid #e8d0dc; }
+.popup-btn-c { background: linear-gradient(120deg, #e4edf0 0%, #e8f0e8 100%); color: #4a6068; border: 0.5px solid #ccdde8; }
+.popup-btn-d { background: linear-gradient(120deg, #ede6f5 0%, #e8e2f2 100%); color: #5a4a6a; border: 0.5px solid #ddd4ec; }
 .popup-note {
   font-size: 12px;
   color: #b0a0c0;
@@ -688,4 +687,4 @@ img { max-width: 100%; display: block; }
   .page-hero { padding: 3rem 1.25rem 2rem; }
   .page-hero-title { font-size: 36px; }
 }
-
+ 
