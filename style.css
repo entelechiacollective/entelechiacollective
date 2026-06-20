@@ -640,6 +640,31 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================
+   FILTER BAR
+   ============================================ */
+.filter-bar {
+  background: #faf8f5;
+  padding: 1.5rem 2.5rem 0;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  padding: 0.4rem 1.25rem;
+  border: 0.5px solid #ddd4ec;
+  background: transparent;
+  color: #9a8aaa;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+.filter-btn:hover { background: #ede6f5; color: #5a4a6a; }
+.filter-btn.active { background: #ede6f5; color: #5a4a6a; border-color: #c8b8d8; }
+
+/* ============================================
    PAGE SUBMIT LINK
    ============================================ */
 .page-submit-bar {
@@ -687,4 +712,3 @@ img { max-width: 100%; display: block; }
   .page-hero { padding: 3rem 1.25rem 2rem; }
   .page-hero-title { font-size: 36px; }
 }
- 
