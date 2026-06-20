@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>entelechia collective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">entelechia</div>
+    <ul class="nav-links">
+      <li><a href="read.html">read</a></li>
+      <li><a href="letters.html">letters</a></li>
+      <li><a href="explore.html">explore</a></li>
+      <li><a href="shelf.html">shelf of healing</a></li>
+      <li><a href="#" onclick="openPopup('submitPopup'); return false;">submit</a></li>
+      <li><a href="#" onclick="openPopup('resourcesPopup'); return false;">resources</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="menu">&#9776;</button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="read.html">read</a>
+    <a href="letters.html">letters</a>
+    <a href="explore.html">explore</a>
+    <a href="shelf.html">shelf of healing</a>
+    <a href="#" onclick="openPopup('submitPopup'); closeMobileNav(); return false;">submit</a>
+    <a href="#" onclick="openPopup('resourcesPopup'); closeMobileNav(); return false;">resources</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">a literary &amp; visual collective</p>
+    <h1 class="hero-title">entelechia</h1>
+    <p class="hero-def">en·te·le·chia &mdash; the realization of potential. having its end within.</p>
+    <p class="hero-body">a space for the things you carry quietly. for the poems you wrote at 2am. for the feelings that don't have names yet.</p>
+    <div class="hero-btns">
+      <button class="btn-dark" onclick="openPopup('submitPopup')">submit your work</button>
+      <a href="read.html" class="btn-light">read the archive</a>
+    </div>
+  </section>
+
+  <!-- WHAT LIVES HERE -->
+  <section class="section-wrapper">
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">what lives here</span>
+      <div class="divider-line"></div>
+    </div>
+    <div class="cards-grid three-col">
+      <a href="read.html" class="card card-lavender">
+        <span class="card-tag">the archive</span>
+        <div class="card-title">poetry, prose &amp; essays</div>
+        <p class="card-body">words submitted anonymously by people who needed somewhere to put them.</p>
+        <span class="card-link">read &rarr;</span>
+      </a>
+      <a href="letters.html" class="card card-sage">
+        <span class="card-tag">unsent letters</span>
+        <div class="card-title">things never said aloud</div>
+        <p class="card-body">letters to people, places, and versions of yourself that never got sent.</p>
+        <span class="card-link">read &rarr;</span>
+      </a>
+      <a href="explore.html" class="card card-blue">
+        <span class="card-tag">the dictionary</span>
+        <div class="card-title">words for feelings</div>
+        <p class="card-body">untranslatable words from languages that understood what english couldn't.</p>
+        <span class="card-link">explore &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- QUOTE STRIP -->
+  <section class="quote-strip">
+    <p class="quote-text">"words spilled in margins, art born of sleepless nights, letters left unsent. entelechia is a home for what cannot stay inside."</p>
+    <p class="quote-attr">&mdash; entelechia collective</p>
+  </section>
+
+  <!-- BOTTOM TWO -->
+  <section class="section-wrapper">
+    <div class="cards-grid two-col">
+      <a href="shelf.html" class="card card-warm">
+        <span class="card-tag">shelf of healing</span>
+        <div class="card-title">books that feel like medicine</div>
+        <p class="card-body">stories about grief, becoming, and surviving softly. curated and reviewed by the collective.</p>
+        <span class="card-link">browse &rarr;</span>
+      </a>
+      <a href="explore.html#sky" class="card card-mist">
+        <span class="card-tag">the sky journal</span>
+        <div class="card-title">if the sky kept a diary</div>
+        <p class="card-body">photographs of skies submitted with the feelings attached to them.</p>
+        <span class="card-link">explore &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">entelechia collective</div>
+    <div class="footer-links">
+      <a href="https://instagram.com" target="_blank">instagram</a>
+      <a href="#" onclick="openPopup('volunteerPopup'); return false;">volunteer</a>
+      <a href="#" onclick="openPopup('resourcesPopup'); return false;">resources</a>
+    </div>
+  </footer>
+
+  <!-- SUBMIT POPUP -->
+  <div class="overlay" id="submitPopup" onclick="closeOnOverlay(event, 'submitPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('submitPopup')">&#215;</button>
+      <div class="popup-title">submit &#10022;</div>
+      <p class="popup-sub">we welcome poetry, prose, art, photography, letters, and anything that carries weight or lightness.</p>
+      <div class="popup-btns">
+        <a href="#" class="popup-btn popup-btn-a">&#10022; general submissions</a>
+        <a href="#" class="popup-btn popup-btn-b">&#10022; unsent letter</a>
+        <a href="#" class="popup-btn popup-btn-c">&#10022; sky diary entry</a>
+        <a href="#" class="popup-btn popup-btn-d">&#10022; book review</a>
+      </div>
+      <p class="popup-note">all submissions are anonymous-friendly. you choose how you want to be credited.</p>
+    </div>
+  </div>
+
+  <!-- RESOURCES POPUP -->
+  <div class="overlay" id="resourcesPopup" onclick="closeOnOverlay(event, 'resourcesPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('resourcesPopup')">&#215;</button>
+      <div class="popup-title">resources &#10022;</div>
+      <div class="popup-section-label">crisis support</div>
+      <div class="popup-resources">
+        <p><strong>988 Lifeline (US):</strong> call or text 988</p>
+        <p><strong>Crisis Text Line (US):</strong> text HOME to 741741</p>
+        <p><strong>Samaritans (UK):</strong> 116 123</p>
+        <p><strong>Lifeline (Australia):</strong> 13 11 14</p>
+        <p><strong>iCall (South Asia):</strong> 9152987821</p>
+      </div>
+      <div class="popup-section-label">ongoing support</div>
+      <div class="popup-resources">
+        <p><strong>7 Cups:</strong> free emotional support — <a href="https://7cups.com" target="_blank">7cups.com</a></p>
+        <p><strong>NAMI:</strong> mental health resources &amp; community — <a href="https://nami.org" target="_blank">nami.org</a></p>
+      </div>
+      <p class="popup-note">you are not alone. reaching out is brave.</p>
+    </div>
+  </div>
+
+  <!-- VOLUNTEER POPUP -->
+  <div class="overlay" id="volunteerPopup" onclick="closeOnOverlay(event, 'volunteerPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('volunteerPopup')">&#215;</button>
+      <div class="popup-title">volunteer &#10022;</div>
+      <p class="popup-sub">we're looking for readers, writers, editors, and gentle souls who want to help hold this space.</p>
+      <div class="popup-btns">
+        <a href="#" class="popup-btn popup-btn-a">&#10022; apply to volunteer</a>
+      </div>
+      <p class="popup-note">all roles are remote and flexible. you just need a heart for this.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
