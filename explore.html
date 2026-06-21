@@ -37,52 +37,62 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <p class="page-hero-tag">explore</p>
-    <h1 class="page-hero-title">the dictionary</h1>
-    <p class="page-hero-sub">words from other languages for feelings english never learned to name.</p>
+    <h1 class="page-hero-title">explore</h1>
+    <p class="page-hero-sub">words for feelings that have no name, and skies that held them anyway.</p>
   </section>
 
-  <!-- DICTIONARY GRID -->
-  <div class="dictionary-grid" id="dictionary-container">
-    <!-- images go here — each one is a canva post you upload -->
-    <p class="loading" style="grid-column: 1/-1;">gathering words...</p>
-  </div>
-
-  <!-- DIVIDER -->
-  <div class="section-wrapper">
-    <div class="divider">
-      <div class="divider-line"></div>
-      <span class="divider-text">suggest a word</span>
-      <div class="divider-line"></div>
-    </div>
-    <div style="text-align:center; padding-bottom: 1rem;">
-      <p style="font-size:14px; font-style:italic; color:#8a7a9a; line-height:1.7; margin-bottom:1.25rem;">know a word that deserves to exist here? send it to us.</p>
-      <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="btn-light">suggest a word</a>
-    </div>
-  </div>
-
-  <!-- SKY JOURNAL -->
-  <section id="sky">
+  <!-- ========== DICTIONARY SECTION ========== -->
+  <section class="explore-section" id="dictionary">
     <div class="section-wrapper" style="padding-bottom: 0;">
       <div class="divider">
         <div class="divider-line"></div>
-        <span class="divider-text">if the sky kept a diary</span>
+        <span class="divider-text">the dictionary</span>
         <div class="divider-line"></div>
       </div>
-      <p style="text-align:center; font-size:14px; font-style:italic; color:#8a7a9a; line-height:1.7; padding-bottom:2rem;">photographs of skies with the feelings attached to them.</p>
+      <div class="explore-section-header">
+        <div>
+          <h2 class="explore-section-title">words for feelings</h2>
+          <p class="explore-section-sub">untranslatable words from languages that understood what english couldn't.</p>
+        </div>
+        <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="btn-light">suggest a word</a>
+      </div>
     </div>
-    <div class="sky-grid" id="sky-container">
-      <p class="loading" style="grid-column:1/-1; padding: 3rem;">loading skies...</p>
+
+    <div class="dictionary-grid" id="dictionary-container"></div>
+
+    <div class="see-more-bar" id="dict-see-more-bar">
+      <button class="see-more-btn" id="dict-toggle-btn" onclick="toggleDictionary()">see more &#8595;</button>
     </div>
   </section>
 
-  <!-- SUBMIT BAR -->
-  <div class="page-submit-bar">
-    <p>have a sky that felt like something? share it with us.</p>
-    <a href="https://forms.gle/vqNj5omvocq6nReE7" target="_blank" class="btn-light">submit a sky entry</a>
-  </div>
+  <!-- ========== SKY JOURNAL SECTION ========== -->
+  <section class="explore-section" id="sky">
+    <div class="section-wrapper" style="padding-bottom: 0;">
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">the sky journal</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="explore-section-header">
+        <div>
+          <h2 class="explore-section-title">if the sky kept a diary</h2>
+          <p class="explore-section-sub">photographs of skies submitted with the feelings attached to them. hover to read.</p>
+        </div>
+        <a href="https://forms.gle/vqNj5omvocq6nReE7" target="_blank" class="btn-light">submit a sky</a>
+      </div>
+    </div>
+
+    <div class="sky-grid" id="sky-container">
+      <p class="loading" style="grid-column:1/-1; padding:3rem;">the sky journal is waiting for its first entry.</p>
+    </div>
+
+    <div class="see-more-bar" id="sky-see-more-bar" style="display:none;">
+      <button class="see-more-btn" id="sky-toggle-btn" onclick="toggleSky()">see more &#8595;</button>
+    </div>
+  </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer class="footer" style="margin-top: 1px;">
     <div class="footer-logo">entelechia collective</div>
     <div class="footer-links">
       <a href="https://www.instagram.com/entelechiacollective/" target="_blank">instagram</a>
@@ -144,47 +154,72 @@
 
   <script src="script.js"></script>
   <script>
-    // DICTIONARY — add your uploaded image filenames here
-    // each time you upload a new dictionary card image to images/dictionary/ in github
-    // just add its filename to this list and it will appear on the page
+    // ---- DICTIONARY ----
+    // add new words here as you upload them to images/dictionary/
     const dictionaryImages = [
-  { file: 'saudade.png', word: 'saudade' },
-  { file: 'toska.png', word: 'toska' },
-  { file: 'jayus.png', word: 'jayus' },
-  { file: 'fernweh.png', word: 'fernweh' },
-  { file: 'sillage.png', word: 'sillage' },
-  { file: 'komorebi.png', word: 'komorebi' },
-  { file: 'gezelligheid.png', word: 'gezelligheid' },
-  { file: 'meraki.png', word: 'meraki' },
-  { file: 'mangata.png', word: 'måangata' },
-];
+      { file: 'saudade.png', word: 'saudade' },
+      { file: 'toska.png', word: 'toska' },
+      { file: 'jayus.png', word: 'jayus' },
+      { file: 'fernweh.png', word: 'fernweh' },
+      { file: 'sillage.png', word: 'sillage' },
+      { file: 'komorebi.png', word: 'komorebi' },
+      { file: 'gezelligheid.png', word: 'gezelligheid' },
+      { file: 'meraki.png', word: 'meraki' },
+      { file: 'mangata.png', word: 'måangata' },
+      // add new ones below this line:
+      // { file: 'newword.png', word: 'newword' },
+    ];
 
-    function loadDictionary() {
+    const DICT_INITIAL = 6; // how many show before "see more"
+    let dictExpanded = false;
+
+    function renderDictionary(expanded) {
       const container = document.getElementById('dictionary-container');
-      if (dictionaryImages.length === 0) {
-        container.innerHTML = '<p class="loading" style="grid-column:1/-1;">words are being gathered. check back soon.</p>';
-        return;
-      }
-      container.innerHTML = dictionaryImages.map(item => `
+      const visible = expanded ? dictionaryImages : dictionaryImages.slice(0, DICT_INITIAL);
+      container.innerHTML = visible.map(item => `
         <div class="dict-card">
           <img src="images/dictionary/${item.file}" alt="${item.word}" loading="lazy" />
         </div>
       `).join('');
+
+      // hide see more if all visible
+      const bar = document.getElementById('dict-see-more-bar');
+      if (dictionaryImages.length <= DICT_INITIAL) {
+        bar.style.display = 'none';
+      } else {
+        bar.style.display = 'flex';
+        document.getElementById('dict-toggle-btn').innerHTML = expanded
+          ? 'see less &#8593;'
+          : 'see more &#8595;';
+      }
     }
 
-    // SKY JOURNAL — add sky entries here manually when you receive and approve them
+    function toggleDictionary() {
+      dictExpanded = !dictExpanded;
+      renderDictionary(dictExpanded);
+    }
+
+    // ---- SKY JOURNAL ----
+    // add entries here when you receive and approve them
     // format: { file: 'filename.jpg', message: 'their message', author: 'name or anonymous' }
     const skyEntries = [
-      // example: { file: 'sky1.jpg', message: 'it looked like forgiveness.', author: 'anonymous' },
+      // { file: 'sky1.jpg', message: 'it looked like forgiveness.', author: 'anonymous' },
     ];
 
-    function loadSky() {
+    const SKY_INITIAL = 6;
+    let skyExpanded = false;
+
+    function renderSky(expanded) {
       const container = document.getElementById('sky-container');
+
       if (skyEntries.length === 0) {
         container.innerHTML = '<p class="loading" style="grid-column:1/-1; padding:3rem;">the sky journal is waiting for its first entry.</p>';
+        document.getElementById('sky-see-more-bar').style.display = 'none';
         return;
       }
-      container.innerHTML = skyEntries.map(entry => `
+
+      const visible = expanded ? skyEntries : skyEntries.slice(0, SKY_INITIAL);
+      container.innerHTML = visible.map(entry => `
         <div class="sky-entry">
           <img src="images/sky/${entry.file}" alt="sky" loading="lazy" />
           <div class="sky-entry-overlay">
@@ -193,10 +228,28 @@
           </div>
         </div>
       `).join('');
+
+      const bar = document.getElementById('sky-see-more-bar');
+      if (skyEntries.length <= SKY_INITIAL) {
+        bar.style.display = 'none';
+      } else {
+        bar.style.display = 'flex';
+        document.getElementById('sky-toggle-btn').innerHTML = expanded
+          ? 'see less &#8593;'
+          : 'see more &#8595;';
+      }
     }
 
-    loadDictionary();
-    loadSky();
+    function toggleSky() {
+      skyExpanded = !skyExpanded;
+      renderSky(skyExpanded);
+    }
+
+    // init
+    renderDictionary(false);
+    renderSky(false);
   </script>
 </body>
 </html>
+
+  
