@@ -42,8 +42,11 @@
   </section>
 
   <!-- BOOKS GRID -->
-  <div class="books-grid" id="books-container">
-    <p class="loading" style="grid-column:1/-1;">pulling books from the shelf...</p>
+  <div class="books-grid" id="books-container"></div>
+
+  <!-- SEE MORE -->
+  <div class="see-more-bar" id="books-see-more-bar">
+    <button class="see-more-btn" id="books-toggle-btn" onclick="toggleBooks()">see more &#8595;</button>
   </div>
 
   <!-- SUBMIT BAR -->
@@ -115,28 +118,31 @@
 
   <script src="script.js"></script>
   <script>
-    // SHELF OF HEALING — add your book post images here
-    // upload your canva post images to images/books/ in github
-    // then add them to this list with the review text
-   const books = [
-  { file: 'thebookof.png', title: 'the book of disquiet', review: 'a fragmented journal of someone who watches life from afar, dreaming louder than living. quiet loneliness, poetic sadness, and philosophical reflections that feel like holding someone\'s soul in your hands.', reviewer: 'the collective' },
-  { file: 'onearth.png', title: 'on earth we\'re briefly gorgeous', review: 'a letter from a son to his mother becomes a story of love, trauma, silence, and healing. raw, lyrical, and beautiful — about being caught between worlds, and learning that to heal is to tell your own story.', reviewer: 'the collective' },
-  { file: 'theunbearable.png', title: 'the unbearable lightness of being', review: 'a philosophical whisper disguised as a novel. kundera writes about love, freedom, memory, and the strange weight of being alive. a book that tells you life is both unbearably fragile and unbearably precious.', reviewer: 'the collective' },
-  { file: 'amancalled.png', title: 'a man called ove', review: 'a grumpy old man who isn\'t really grumpy, just unbearably lonely. about the way small acts of kindness can peel grief open in the gentlest ways.', reviewer: 'the collective' },
-  { file: 'thedeath.png', title: 'the death of ivan ilyich', review: 'a quiet, devastating little mirror. ivan ilyich spends his whole life trying to be "proper" — only to discover, at the edge of death, that none of it was real living.', reviewer: 'the collective' },
-  { file: 'thepilgrimage.png', title: 'the unlikely pilgrimage of harold fry', review: 'a retired man walks over six hundred miles after receiving a letter from an old friend in hospice. each mile unravels his grief, regrets, and longing for redemption.', reviewer: 'the collective' },
-  { file: 'theprophet.png', title: 'the prophet', review: 'a collection of 26 prose-poems on love, beauty, sorrow, and purpose. each essay reads like whispered wisdom for the soul — rooted in simple truths that feel ancient and wholly alive.', reviewer: 'the collective' },
-  { file: 'cryinginhmart.png', title: 'crying in h mart', review: 'a memoir braided with grief and identity. through food and memory, she finds her mother again and learns that loss can unlock belonging. both painful and healing to read.', reviewer: 'the collective' },
-  { file: 'letterstoayoungpoet.png', title: 'letters to a young poet', review: 'gentle letters on solitude, art, and becoming. perfect guidance for any soul feeling lost or searching; the kind of wisdom you carry like a secret.', reviewer: 'the collective' },
-];
+    // add new books here as you get them
+    // upload the image to images/books/ in github first
+    // then add a new line below
+    const books = [
+      { file: 'thebookof.png', title: 'the book of disquiet', review: 'a fragmented journal of someone who watches life from afar, dreaming louder than living. quiet loneliness, poetic sadness, and philosophical reflections that feel like holding someone\'s soul in your hands.', reviewer: 'the collective' },
+      { file: 'onearth.png', title: 'on earth we\'re briefly gorgeous', review: 'a letter from a son to his mother becomes a story of love, trauma, silence, and healing. raw, lyrical, and beautiful — about being caught between worlds, and learning that to heal is to tell your own story.', reviewer: 'the collective' },
+      { file: 'theunbearable.png', title: 'the unbearable lightness of being', review: 'a philosophical whisper disguised as a novel. kundera writes about love, freedom, memory, and the strange weight of being alive. a book that tells you life is both unbearably fragile and unbearably precious.', reviewer: 'the collective' },
+      { file: 'amancalled.png', title: 'a man called ove', review: 'a grumpy old man who isn\'t really grumpy, just unbearably lonely. about the way small acts of kindness can peel grief open in the gentlest ways. ove teaches you that even when life feels finished, the world has its own quiet ways of pulling you back in.', reviewer: 'the collective' },
+      { file: 'thedeath.png', title: 'the death of ivan ilyich', review: 'a quiet, devastating little mirror. ivan ilyich spends his whole life trying to be "proper" — only to discover, at the edge of death, that none of it was real living. this book aches with questions: what is a meaningful life? what is truth when everything else falls apart?', reviewer: 'the collective' },
+      { file: 'thepilgrimage.png', title: 'the unlikely pilgrimage of harold fry', review: 'a retired man walks over six hundred miles after receiving a letter from an old friend in hospice. each mile unravels his grief, regrets, and longing for redemption. a gentle journey toward hope and reconnection.', reviewer: 'the collective' },
+      { file: 'theprophet.png', title: 'the prophet', review: 'a collection of 26 prose-poems on love, beauty, sorrow, and purpose. each essay reads like whispered wisdom for the soul — rooted in simple truths that feel ancient and wholly alive.', reviewer: 'the collective' },
+      { file: 'cryinginhmart.png', title: 'crying in h mart', review: 'a memoir braided with grief and identity. through food and memory, she finds her mother again and learns that loss can unlock belonging. both painful and healing to read.', reviewer: 'the collective' },
+      { file: 'letterstoayoungpoet.png', title: 'letters to a young poet', review: 'gentle letters on solitude, art, and becoming. perfect guidance for any soul feeling lost or searching; the kind of wisdom you carry like a secret.', reviewer: 'the collective' },
+      // add new books below this line:
+      // { file: 'newbook.png', title: 'book title', review: 'your review here', reviewer: 'name or anonymous' },
+    ];
 
-    function loadBooks() {
+    const BOOKS_INITIAL = 6;
+    let booksExpanded = false;
+
+    function renderBooks(expanded) {
       const container = document.getElementById('books-container');
-      if (books.length === 0) {
-        container.innerHTML = '<p class="loading" style="grid-column:1/-1;">the shelf is being filled. check back soon.</p>';
-        return;
-      }
-      container.innerHTML = books.map(book => `
+      const visible = expanded ? books : books.slice(0, BOOKS_INITIAL);
+
+      container.innerHTML = visible.map(book => `
         <div class="book-card">
           <img src="images/books/${book.file}" alt="${book.title}" loading="lazy" />
           <div class="book-card-overlay">
@@ -145,9 +151,24 @@
           </div>
         </div>
       `).join('');
+
+      const bar = document.getElementById('books-see-more-bar');
+      if (books.length <= BOOKS_INITIAL) {
+        bar.style.display = 'none';
+      } else {
+        bar.style.display = 'flex';
+        document.getElementById('books-toggle-btn').innerHTML = expanded
+          ? 'see less &#8593;'
+          : 'see more &#8595;';
+      }
     }
 
-    loadBooks();
+    function toggleBooks() {
+      booksExpanded = !booksExpanded;
+      renderBooks(booksExpanded);
+    }
+
+    renderBooks(false);
   </script>
 </body>
 </html>
