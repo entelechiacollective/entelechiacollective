@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>explore — entelechia collective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo"><a href="index.html">entelechia</a></div>
+    <ul class="nav-links">
+      <li><a href="read.html">read</a></li>
+      <li><a href="letters.html">letters</a></li>
+      <li><a href="explore.html">explore</a></li>
+      <li><a href="shelf.html">shelf of healing</a></li>
+      <li><a href="#" onclick="openPopup('submitPopup'); return false;">submit</a></li>
+      <li><a href="#" onclick="openPopup('resourcesPopup'); return false;">resources</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="menu">&#9776;</button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="read.html">read</a>
+    <a href="letters.html">letters</a>
+    <a href="explore.html">explore</a>
+    <a href="shelf.html">shelf of healing</a>
+    <a href="#" onclick="openPopup('submitPopup'); closeMobileNav(); return false;">submit</a>
+    <a href="#" onclick="openPopup('resourcesPopup'); closeMobileNav(); return false;">resources</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <p class="page-hero-tag">explore</p>
+    <h1 class="page-hero-title">the dictionary</h1>
+    <p class="page-hero-sub">words from other languages for feelings english never learned to name.</p>
+  </section>
+
+  <!-- DICTIONARY GRID -->
+  <div class="dictionary-grid" id="dictionary-container">
+    <!-- images go here — each one is a canva post you upload -->
+    <p class="loading" style="grid-column: 1/-1;">gathering words...</p>
+  </div>
+
+  <!-- DIVIDER -->
+  <div class="section-wrapper">
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">suggest a word</span>
+      <div class="divider-line"></div>
+    </div>
+    <div style="text-align:center; padding-bottom: 1rem;">
+      <p style="font-size:14px; font-style:italic; color:#8a7a9a; line-height:1.7; margin-bottom:1.25rem;">know a word that deserves to exist here? send it to us.</p>
+      <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="btn-light">suggest a word</a>
+    </div>
+  </div>
+
+  <!-- SKY JOURNAL -->
+  <section id="sky">
+    <div class="section-wrapper" style="padding-bottom: 0;">
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">if the sky kept a diary</span>
+        <div class="divider-line"></div>
+      </div>
+      <p style="text-align:center; font-size:14px; font-style:italic; color:#8a7a9a; line-height:1.7; padding-bottom:2rem;">photographs of skies with the feelings attached to them.</p>
+    </div>
+    <div class="sky-grid" id="sky-container">
+      <p class="loading" style="grid-column:1/-1; padding: 3rem;">loading skies...</p>
+    </div>
+  </section>
+
+  <!-- SUBMIT BAR -->
+  <div class="page-submit-bar">
+    <p>have a sky that felt like something? share it with us.</p>
+    <a href="https://forms.gle/vqNj5omvocq6nReE7" target="_blank" class="btn-light">submit a sky entry</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">entelechia collective</div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/entelechiacollective/" target="_blank">instagram</a>
+      <a href="#" onclick="openPopup('volunteerPopup'); return false;">volunteer</a>
+      <a href="#" onclick="openPopup('resourcesPopup'); return false;">resources</a>
+    </div>
+  </footer>
+
+  <!-- SUBMIT POPUP -->
+  <div class="overlay" id="submitPopup" onclick="closeOnOverlay(event, 'submitPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('submitPopup')">&#215;</button>
+      <div class="popup-title">submit &#10022;</div>
+      <p class="popup-sub">we welcome poetry, prose, art, photography, letters, and anything that carries weight or lightness.</p>
+      <div class="popup-btns">
+        <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="popup-btn popup-btn-a">&#10022; general submissions</a>
+        <a href="https://forms.gle/TYsuQbqLczdqz2hj6" target="_blank" class="popup-btn popup-btn-b">&#10022; unsent letters</a>
+        <a href="https://forms.gle/vqNj5omvocq6nReE7" target="_blank" class="popup-btn popup-btn-c">&#10022; sky diary entry</a>
+        <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="popup-btn popup-btn-d">&#10022; book reviews</a>
+      </div>
+      <p class="popup-note">all submissions are anonymous-friendly. you choose how you want to be credited.</p>
+    </div>
+  </div>
+
+  <!-- RESOURCES POPUP -->
+  <div class="overlay" id="resourcesPopup" onclick="closeOnOverlay(event, 'resourcesPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('resourcesPopup')">&#215;</button>
+      <div class="popup-title">resources &#10022;</div>
+      <div class="popup-section-label">crisis support</div>
+      <div class="popup-resources">
+        <p><strong>988 Lifeline (US):</strong> call or text 988</p>
+        <p><strong>Crisis Text Line (US):</strong> text HOME to 741741</p>
+        <p><strong>Samaritans (UK):</strong> 116 123</p>
+        <p><strong>Lifeline (Australia):</strong> 13 11 14</p>
+        <p><strong>iCall (South Asia):</strong> 9152987821</p>
+      </div>
+      <div class="popup-section-label">ongoing support</div>
+      <div class="popup-resources">
+        <p><strong>7 Cups:</strong> free emotional support — <a href="https://7cups.com" target="_blank">7cups.com</a></p>
+        <p><strong>NAMI:</strong> mental health resources &amp; community — <a href="https://nami.org" target="_blank">nami.org</a></p>
+      </div>
+      <p class="popup-note">you are not alone. reaching out is brave.</p>
+    </div>
+  </div>
+
+  <!-- VOLUNTEER POPUP -->
+  <div class="overlay" id="volunteerPopup" onclick="closeOnOverlay(event, 'volunteerPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('volunteerPopup')">&#215;</button>
+      <div class="popup-title">volunteer &#10022;</div>
+      <p class="popup-sub">we're looking for readers, writers, editors, and gentle souls who want to help hold this space.</p>
+      <div class="popup-btns">
+        <a href="https://forms.gle/FNsm19fzMGr7P7Ft5" target="_blank" class="popup-btn popup-btn-a">&#10022; apply to volunteer</a>
+      </div>
+      <p class="popup-note">all roles are remote and flexible. you just need a heart for this.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // DICTIONARY — add your uploaded image filenames here
+    // each time you upload a new dictionary card image to images/dictionary/ in github
+    // just add its filename to this list and it will appear on the page
+    const dictionaryImages = [
+      { file: 'saudade.png', word: 'saudade' },
+      // add more like: { file: 'komorebi.png', word: 'komorebi' },
+    ];
+
+    function loadDictionary() {
+      const container = document.getElementById('dictionary-container');
+      if (dictionaryImages.length === 0) {
+        container.innerHTML = '<p class="loading" style="grid-column:1/-1;">words are being gathered. check back soon.</p>';
+        return;
+      }
+      container.innerHTML = dictionaryImages.map(item => `
+        <div class="dict-card">
+          <img src="images/dictionary/${item.file}" alt="${item.word}" loading="lazy" />
+        </div>
+      `).join('');
+    }
+
+    // SKY JOURNAL — add sky entries here manually when you receive and approve them
+    // format: { file: 'filename.jpg', message: 'their message', author: 'name or anonymous' }
+    const skyEntries = [
+      // example: { file: 'sky1.jpg', message: 'it looked like forgiveness.', author: 'anonymous' },
+    ];
+
+    function loadSky() {
+      const container = document.getElementById('sky-container');
+      if (skyEntries.length === 0) {
+        container.innerHTML = '<p class="loading" style="grid-column:1/-1; padding:3rem;">the sky journal is waiting for its first entry.</p>';
+        return;
+      }
+      container.innerHTML = skyEntries.map(entry => `
+        <div class="sky-entry">
+          <img src="images/sky/${entry.file}" alt="sky" loading="lazy" />
+          <div class="sky-entry-overlay">
+            <p>${entry.message}</p>
+            <span>— ${entry.author || 'anonymous'}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    loadDictionary();
+    loadSky();
+  </script>
+</body>
+</html>
