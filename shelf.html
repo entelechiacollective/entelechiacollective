@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>shelf of healing — entelechia collective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo"><a href="index.html">entelechia</a></div>
+    <ul class="nav-links">
+      <li><a href="read.html">read</a></li>
+      <li><a href="letters.html">letters</a></li>
+      <li><a href="explore.html">explore</a></li>
+      <li><a href="shelf.html">shelf of healing</a></li>
+      <li><a href="#" onclick="openPopup('submitPopup'); return false;">submit</a></li>
+      <li><a href="#" onclick="openPopup('resourcesPopup'); return false;">resources</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="menu">&#9776;</button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="read.html">read</a>
+    <a href="letters.html">letters</a>
+    <a href="explore.html">explore</a>
+    <a href="shelf.html">shelf of healing</a>
+    <a href="#" onclick="openPopup('submitPopup'); closeMobileNav(); return false;">submit</a>
+    <a href="#" onclick="openPopup('resourcesPopup'); closeMobileNav(); return false;">resources</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <p class="page-hero-tag">shelf of healing</p>
+    <h1 class="page-hero-title">books that feel like medicine</h1>
+    <p class="page-hero-sub">stories about grief, becoming, and surviving softly. hover over each book to read the review.</p>
+  </section>
+
+  <!-- BOOKS GRID -->
+  <div class="books-grid" id="books-container">
+    <p class="loading" style="grid-column:1/-1;">pulling books from the shelf...</p>
+  </div>
+
+  <!-- SUBMIT BAR -->
+  <div class="page-submit-bar">
+    <p>read a book that felt like it was written for you? share it with us.</p>
+    <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="btn-light">submit a book review</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">entelechia collective</div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/entelechiacollective/" target="_blank">instagram</a>
+      <a href="#" onclick="openPopup('volunteerPopup'); return false;">volunteer</a>
+      <a href="#" onclick="openPopup('resourcesPopup'); return false;">resources</a>
+    </div>
+  </footer>
+
+  <!-- SUBMIT POPUP -->
+  <div class="overlay" id="submitPopup" onclick="closeOnOverlay(event, 'submitPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('submitPopup')">&#215;</button>
+      <div class="popup-title">submit &#10022;</div>
+      <p class="popup-sub">we welcome poetry, prose, art, photography, letters, and anything that carries weight or lightness.</p>
+      <div class="popup-btns">
+        <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="popup-btn popup-btn-a">&#10022; general submissions</a>
+        <a href="https://forms.gle/TYsuQbqLczdqz2hj6" target="_blank" class="popup-btn popup-btn-b">&#10022; unsent letters</a>
+        <a href="https://forms.gle/vqNj5omvocq6nReE7" target="_blank" class="popup-btn popup-btn-c">&#10022; sky diary entry</a>
+        <a href="https://forms.gle/kT5BNuXuu1HeDE636" target="_blank" class="popup-btn popup-btn-d">&#10022; book reviews</a>
+      </div>
+      <p class="popup-note">all submissions are anonymous-friendly. you choose how you want to be credited.</p>
+    </div>
+  </div>
+
+  <!-- RESOURCES POPUP -->
+  <div class="overlay" id="resourcesPopup" onclick="closeOnOverlay(event, 'resourcesPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('resourcesPopup')">&#215;</button>
+      <div class="popup-title">resources &#10022;</div>
+      <div class="popup-section-label">crisis support</div>
+      <div class="popup-resources">
+        <p><strong>988 Lifeline (US):</strong> call or text 988</p>
+        <p><strong>Crisis Text Line (US):</strong> text HOME to 741741</p>
+        <p><strong>Samaritans (UK):</strong> 116 123</p>
+        <p><strong>Lifeline (Australia):</strong> 13 11 14</p>
+        <p><strong>iCall (South Asia):</strong> 9152987821</p>
+      </div>
+      <div class="popup-section-label">ongoing support</div>
+      <div class="popup-resources">
+        <p><strong>7 Cups:</strong> free emotional support — <a href="https://7cups.com" target="_blank">7cups.com</a></p>
+        <p><strong>NAMI:</strong> mental health resources &amp; community — <a href="https://nami.org" target="_blank">nami.org</a></p>
+      </div>
+      <p class="popup-note">you are not alone. reaching out is brave.</p>
+    </div>
+  </div>
+
+  <!-- VOLUNTEER POPUP -->
+  <div class="overlay" id="volunteerPopup" onclick="closeOnOverlay(event, 'volunteerPopup')">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup('volunteerPopup')">&#215;</button>
+      <div class="popup-title">volunteer &#10022;</div>
+      <p class="popup-sub">we're looking for readers, writers, editors, and gentle souls who want to help hold this space.</p>
+      <div class="popup-btns">
+        <a href="https://forms.gle/FNsm19fzMGr7P7Ft5" target="_blank" class="popup-btn popup-btn-a">&#10022; apply to volunteer</a>
+      </div>
+      <p class="popup-note">all roles are remote and flexible. you just need a heart for this.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // SHELF OF HEALING — add your book post images here
+    // upload your canva post images to images/books/ in github
+    // then add them to this list with the review text
+    const books = [
+      {
+        file: 'bookofisquiet.png',
+        title: 'the book of disquiet',
+        review: 'a fragmented journal of someone who watches life from afar, dreaming louder than living. quiet loneliness, poetic sadness, and philosophical reflections that feel like holding someone\'s soul in your hands.',
+        reviewer: 'the collective'
+      },
+      {
+        file: 'letterstoayoungpoet.png',
+        title: 'letters to a young poet',
+        review: 'gentle letters on solitude, art, and becoming. perfect guidance for any soul feeling lost or searching; the kind of wisdom you carry like a secret.',
+        reviewer: 'the collective'
+      },
+      {
+        file: 'onearth.png',
+        title: 'on earth we\'re briefly gorgeous',
+        review: 'a letter from a son to his mother becomes a story of love, trauma, silence, and healing. raw, lyrical, and beautiful — about being caught between worlds, and learning that to heal is to tell your own story.',
+        reviewer: 'the collective'
+      },
+      // add more as you get them:
+      // { file: 'yourimage.png', title: 'book title', review: 'your review here', reviewer: 'name or anonymous' },
+    ];
+
+    function loadBooks() {
+      const container = document.getElementById('books-container');
+      if (books.length === 0) {
+        container.innerHTML = '<p class="loading" style="grid-column:1/-1;">the shelf is being filled. check back soon.</p>';
+        return;
+      }
+      container.innerHTML = books.map(book => `
+        <div class="book-card">
+          <img src="images/books/${book.file}" alt="${book.title}" loading="lazy" />
+          <div class="book-card-overlay">
+            <p>${book.review}</p>
+            <span>— ${book.reviewer || 'the collective'}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    loadBooks();
+  </script>
+</body>
+</html>
