@@ -640,6 +640,37 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================
+   EXPLORE SECTIONS
+   ============================================ */
+.explore-section {
+  border-top: 0.5px solid #e0d8ec;
+  padding-bottom: 1rem;
+}
+.explore-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.explore-section-title {
+  font-size: 32px;
+  font-weight: 300;
+  font-style: italic;
+  color: #4a3a5a;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+.explore-section-sub {
+  font-size: 13px;
+  color: #8a7a9a;
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 380px;
+}
+
+/* ============================================
    FILTER BAR
    ============================================ */
 .filter-bar {
@@ -679,6 +710,33 @@ img { max-width: 100%; display: block; }
   color: #8a7a9a;
   margin-bottom: 1.25rem;
   line-height: 1.7;
+}
+
+/* ============================================
+   SEE MORE BAR
+   ============================================ */
+.see-more-bar {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  background: #faf8f5;
+  border-top: 0.5px solid #ede6f5;
+}
+.see-more-btn {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: #9a8aaa;
+  background: transparent;
+  border: 0.5px solid #ddd4ec;
+  padding: 0.6rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.see-more-btn:hover {
+  background: #ede6f5;
+  color: #5a4a6a;
 }
 
 /* ============================================
